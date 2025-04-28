@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hostel Information</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://gehu.ac.in/assets/images/GEHU-BTL-b80ef66e.webp') no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      background-color: #1e40af; /* Tailwind blue-800 */
+      color: white;
+      text-align: left;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-black bg-opacity-60 text-white flex flex-col items-center p-6">
+  <div class="bg-black bg-opacity-80 rounded-lg p-6 max-w-4xl w-full">
+    <h1 class="text-4xl font-bold mb-6 text-center">Hostel Information</h1>
+    <div>
+      <nav class="flex space-x-4 mb-6 justify-center">
+        <button id="tab1Btn" class="tab-button bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400" aria-selected="true">Hostel Fees</button>
+        <button id="tab2Btn" class="tab-button bg-gray-700 px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400" aria-selected="false">Accommodation Details</button>
+        <button id="tab3Btn" class="tab-button bg-gray-700 px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400" aria-selected="false">Hostel Images</button>
+        <button id="tab4Btn" class="tab-button bg-gray-700 px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400" aria-selected="false">Hostel Ratings & Feedback</button>
+      </nav>
+      <section id="tab1" class="tab-content">
+        <h2 class="text-2xl font-semibold mb-4">Hostel Fees</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Hostel Name</th>
+              <th>Room Type</th>
+              <th>Fees (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>NETAJI SUBHASH CHANDRA HOSTEL</td><td>Single Non AC</td><td>153250</td></tr>
+            <tr><td>NETAJI SUBHASH CHANDRA HOSTEL</td><td>Double Non AC</td><td>147750</td></tr>
+            <tr><td>NETAJI SUBHASH CHANDRA HOSTEL</td><td>Triple Non AC</td><td>167000</td></tr>
+            <tr><td>NETAJI SUBHASH CHANDRA HOSTEL</td><td>Single AC</td><td>164250</td></tr>
+            <tr><td>NETAJI SUBHASH CHANDRA HOSTEL</td><td>Double AC</td><td>162250</td></tr>
+            <tr><td>NETAJI SUBHASH CHANDRA HOSTEL</td><td>4 SEATER (NON-AC)</td><td>125750</td></tr>
+            <tr><td>NETAJI SUBHASH CHANDRA HOSTEL</td><td>4 SEATER (AC)</td><td>135750</td></tr>
+            <tr><td>LAXMI BAI HOSTEL</td><td>Single Non AC</td><td>167000</td></tr>
+            <tr><td>PRIYADARSHANI HOSTEL</td><td>Double Non AC</td><td>124750</td></tr>
+            <tr><td>PRIYADARSHANI HOSTEL</td><td>4 SEATER (AC)</td><td>135750</td></tr>
+            <tr><td>PUNCHACHULI (CAMPUS VIEW ROOMS)</td><td>Single Non AC</td><td>125000</td></tr>
+            <tr><td>PANCHACHULI EXCEPT CAMPUS VIEW ROOMS</td><td>Double Non AC</td><td>105000</td></tr>
+            <tr><td>NANDADEVI</td><td>Triple Non AC</td><td>95000</td></tr>
+            <tr><td>NEELKHANTH</td><td>Single AC</td><td>110000</td></tr>
+            <tr><td>DUNAGIRI</td><td>Double AC</td><td>100000</td></tr>
+            <tr><td>SHIVALIK</td><td>Triple AC</td><td>120000</td></tr>
+            <tr><td>MAPPLE</td><td>Hostel Security</td><td>110000</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="tab2" class="tab-content hidden">
+        <h2 class="text-2xl font-semibold mb-4">Accommodation Details</h2>
+        <p class="mb-4">Our hostels provide comfortable accommodation with the following amenities:</p>
+        <ul class="list-disc list-inside space-y-2">
+          <li>24/7 Security and CCTV surveillance</li>
+          <li>Wi-Fi connectivity in all rooms and common areas</li>
+          <li>Mess facility with nutritious meals</li>
+          <li>Common recreational areas and gym</li>
+          <li>Laundry services available</li>
+        </ul>
+      </section>
+      <section id="tab3" class="tab-content hidden">
+        <h2 class="text-2xl font-semibold mb-4">Hostel Images</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <img src="https://gehu.ac.in/assets/images/hostel1.jpg" alt="Hostel Building 1" class="rounded shadow-md" />
+          <img src="https://gehu.ac.in/assets/images/hostel2.jpg" alt="Hostel Building 2" class="rounded shadow-md" />
+          <img src="https://gehu.ac.in/assets/images/hostel3.jpg" alt="Hostel Building 3" class="rounded shadow-md" />
+        </div>
+      </section>
+      <section id="tab4" class="tab-content hidden">
+        <h2 class="text-2xl font-semibold mb-4">Hostel Ratings & Feedback</h2>
+        <p class="mb-4">Please rate your hostel experience and provide feedback to help other students find the best accommodation.</p>
+        <form id="feedbackForm" class="space-y-4 max-w-lg mx-auto">
+          <div>
+            <label for="rating" class="block font-medium mb-1">Rating:</label>
+            <select id="rating" name="rating" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+              <option value="" disabled selected>Select rating</option>
+              <option value="5">5 - Excellent</option>
+              <option value="4">4 - Very Good</option>
+              <option value="3">3 - Good</option>
+              <option value="2">2 - Fair</option>
+              <option value="1">1 - Poor</option>
+            </select>
+          </div>
+          <div>
+            <label for="feedback" class="block font-medium mb-1">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your feedback here..." required></textarea>
+          </div>
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded transition-colors">Submit Feedback</button>
+        </form>
+        <div id="feedbackMessage" class="mt-4 text-center text-green-400 hidden">Thank you for your feedback!</div>
+      </section>
+    </div>
+    <div class="mt-6 text-center">
+      <a href="survey.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded transition-colors">
+        Proceed to Survey
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('bg-blue-600');
+          t.classList.add('bg-gray-700');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('bg-blue-600');
+        tab.classList.remove('bg-gray-700');
+        tab.setAttribute('aria-selected', 'true');
+
+        contents.forEach(content => content.classList.add('hidden'));
+        contents[index].classList.remove('hidden');
+      });
+    });
+
+    // Feedback form submission handling
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackMessage = document.getElementById('feedbackMessage');
+
+    feedbackForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // For demo, just show thank you message and reset form
+      feedbackMessage.classList.remove('hidden');
+      feedbackForm.reset();
+      setTimeout(() => {
+        feedbackMessage.classList.add('hidden');
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
