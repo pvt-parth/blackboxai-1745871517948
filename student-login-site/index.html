@@ -138,16 +138,8 @@
         return;
       }
 
-      const idValue = idInput.value.trim();
-      const phoneValue = phoneInput.value.trim();
-      const passwordValue = passwordInput.value.trim();
-
-      if (checkCredentials(idValue, phoneValue, passwordValue)) {
-        // Redirect to welcome page on successful login
-        window.location.href = "welcome.html";
-      } else {
-        alert('Invalid credentials. Please try again.');
-      }
+      // Directly redirect to welcome page without authentication
+      window.location.href = "welcome.html";
     });
   </script>
 </body>
