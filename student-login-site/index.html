@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://student.gehu.ac.in/Images/LoginImg/gehuHome.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    /* Modal background overlay */
+    #loginModal {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    /* Make dialog box bigger with rectangle shape and curvy corners */
+    #loginModal > div {
+      border-radius: 1rem;
+      width: 400px;
+      max-width: 90vw;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+  <div id="loginModal" class="fixed inset-0 flex items-center justify-center">
+    <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 w-80 max-w-full">
+      <h2 class="text-2xl font-semibold mb-6 text-center">Student Login</h2>
+      <form id="loginForm" class="space-y-4" novalidate>
+        <div>
+          <label for="studentId" class="block text-gray-700 font-medium mb-1">Student ID</label>
+          <input
+            type="text"
+            id="studentId"
+            name="studentId"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your Student ID"
+          />
+          <p class="text-red-600 text-sm mt-1 hidden" id="idError">Student ID is required.</p>
+        </div>
+        <div>
+          <label for="phoneNumber" class="block text-gray-700 font-medium mb-1">Phone Number</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your phone number"
+          />
+          <p class="text-red-600 text-sm mt-1 hidden" id="phoneError">Phone number is required.</p>
+        </div>
+        <div>
+          <label for="password" class="block text-gray-700 font-medium mb-1">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your password"
+          />
+          <p class="text-red-600 text-sm mt-1 hidden" id="passwordError">Password is required.</p>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const idInput = document.getElementById('studentId');
+    const phoneInput = document.getElementById('phoneNumber');
+    const passwordInput = document.getElementById('password');
+
+    const idError = document.getElementById('idError');
+    const phoneError = document.getElementById('phoneError');
+    const passwordError = document.getElementById('passwordError');
+
+    // Sample credentials for demonstration
+    const validCredentials = [
+      { id: '1234567', phone: '9876543210', password: 'password123' },
+      { id: '7654321', phone: '9123456789', password: 'pass456' }
+    ];
+
+    function validateInput() {
+      let valid = true;
+
+      // Validate Student ID: required
+      const idValue = idInput.value.trim();
+      if (idValue === '') {
+        idError.classList.remove('hidden');
+        valid = false;
+      } else {
+        idError.classList.add('hidden');
+      }
+
+      // Validate phone number: required
+      const phoneValue = phoneInput.value.trim();
+      if (phoneValue === '') {
+        phoneError.classList.remove('hidden');
+        valid = false;
+      } else {
+        phoneError.classList.add('hidden');
+      }
+
+      // Validate password: required
+      if (passwordInput.value.trim() === '') {
+        passwordError.classList.remove('hidden');
+        valid = false;
+      } else {
+        passwordError.classList.add('hidden');
+      }
+
+      return valid;
+    }
+
+    function checkCredentials(id, phone, password) {
+      return validCredentials.some(
+        (cred) => cred.id === id && cred.phone === phone && cred.password === password
+      );
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!validateInput()) {
+        return;
+      }
+
+      const idValue = idInput.value.trim();
+      const phoneValue = phoneInput.value.trim();
+      const passwordValue = passwordInput.value.trim();
+
+      if (checkCredentials(idValue, phoneValue, passwordValue)) {
+        // Redirect to welcome page on successful login
+        window.location.href = "welcome.html";
+      } else {
+        alert('Invalid credentials. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>
